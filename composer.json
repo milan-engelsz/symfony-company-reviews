@@ -2,7 +2,7 @@
     "name": "milan-engelsz/symfony-company-reviews",
     "description": "Symfony 7 take-home: company reviews (Twig, Doctrine)",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
