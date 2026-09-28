@@ -1,0 +1,9 @@
+twig:
+    file_name_pattern: '*.twig'
+    form_themes: ['bootstrap_5_layout.html.twig']
+    globals:
+        review_text_preview_length: '%app.reviews.text_preview_length%'
+
+when@test:
+    twig:
+        strict_variables: true

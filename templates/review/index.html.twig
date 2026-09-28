@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'nav.reviews'|trans }}
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('review.new') }}" class="btn btn-primary">
+        {{ 'pages.reviews.index.newReviewCta'|trans }}
+    </a>
+
+    <div class="table-responsive mt-3">
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>
+                    {{ 'pages.reviews.index.companyName'|trans }}
+                </th>
+                <th>
+                    {{ 'pages.reviews.index.rating'|trans }}
+                </th>
+                <th>
+                    {{ 'pages.reviews.index.reviewText'|trans }}
+                </th>
+                <th>
+                    {{ 'pages.reviews.index.createdAt'|trans }}
+                </th>
+                <th>
+                    {{ 'pages.reviews.index.actions'|trans }}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for review in paginatedReviews %}
+                <tr>
+                    <td>
+                        {{ review.getCompanyName() }}
+                    </td>
+                    <td>
+                        {{ include('components/reviewRating.html.twig', { rating: review.getRating() }) }}
+                    </td>
+                    <td>
+                        {{ review.getReviewText()|u.truncate(review_text_preview_length, '...') }}
+                    </td>
+                    <td>
+                        {{ review.getCreatedAt()|app_datetime }}
+                    </td>
+                    <td>
+                        <a href="{{ path('review.show', {review: review.getId()}) }}"
+                           class="btn btn-primary"
+                        >
+                            {{ 'pages.reviews.index.viewDetails'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">
+                        {{ 'empty_state.reviews'|trans }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        {{ knp_pagination_render(paginatedReviews) }}
+    </div>
+
+{% endblock %}

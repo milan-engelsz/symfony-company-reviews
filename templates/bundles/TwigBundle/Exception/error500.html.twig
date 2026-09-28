@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ '500.title'|trans({}, 'errors') }}
+{% endblock %}
+
+{% block body %}
+    <p class="text-center">
+        {{ '500.content'|trans({}, 'errors') }}
+    </p>
+{% endblock %}

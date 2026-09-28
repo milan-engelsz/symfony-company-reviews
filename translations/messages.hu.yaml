@@ -1,0 +1,65 @@
+entity:
+    review:
+        companyName: &entity_review_companyName 'Cégnév'
+        rating: &entity_review_rating 'Értékelés'
+        ratingRange: &entity_review_ratingRange 'Értékelés (1-5)'
+        reviewText: &entity_review_reviewText 'Vélemény szövege'
+        authorEmail: &entity_review_authorEmail 'E-mail cím'
+        createdAt: &entity_review_createdAt 'Dátum'
+
+nav:
+    reviews: &nav_reviews 'Vélemények'
+    companies_statistics: &nav_companies_statistics 'Összesített cégstatisztika'
+
+pages:
+    companies:
+        index:
+            rankColumn: '#'
+            companyName: *entity_review_companyName
+            reviewCount: 'Értékelések száma'
+            avgRating: 'Átlagos értékelés'
+            unitPieces: 'db'
+    reviews:
+        index:
+            companyName: *entity_review_companyName
+            rating: *entity_review_rating
+            reviewText: *entity_review_reviewText
+            createdAt: *entity_review_createdAt
+            actions: 'Műveletek'
+            viewDetails: 'Megnézem'
+            newReviewCta: 'Új vélemény'
+        show:
+            title: 'Vélemény részletei'
+            companyName: *entity_review_companyName
+            rating: *entity_review_rating
+            reviewer: 'Értékelő'
+            createdAt: *entity_review_createdAt
+            reviewText: *entity_review_reviewText
+        new:
+            title: 'Új vélemény beküldése'
+            companyName: *entity_review_companyName
+            rating: *entity_review_ratingRange
+            reviewText: *entity_review_reviewText
+            authorEmail: *entity_review_authorEmail
+
+empty_state:
+    companies: 'Jelenleg nincsenek elérhető értékelések.'
+    reviews: 'Nincs megjeleníthető vélemény.'
+
+action:
+    search: 'Keresés'
+    save: 'Mentés'
+    back: 'Vissza'
+
+flash:
+    review_submitted: 'Köszönjük a véleményed!'
+
+placeholder:
+    company_search: 'Írd be a cég nevét...'
+
+app:
+    brand: 'Próba feladat'
+    default_title: 'Üdvözöllek!'
+
+aria:
+    toggle_navigation: 'Menü megnyitása és bezárása'

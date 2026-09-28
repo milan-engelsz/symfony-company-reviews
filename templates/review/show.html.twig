@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'pages.reviews.show.title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <ul class="list-unstyled">
+        <li>
+            <b>{{ 'pages.reviews.show.companyName'|trans }}</b>:
+            {{ review.getCompanyName() }}
+        </li>
+        <li>
+            <b>{{ 'pages.reviews.show.rating'|trans }}</b>:
+            {{ include('components/reviewRating.html.twig', { rating: review.getRating() }) }}
+        </li>
+        <li>
+            <b>{{ 'pages.reviews.show.reviewer'|trans }}</b>:
+            {{ review.getAuthorEmail() }}
+        </li>
+        <li>
+            <b>{{ 'pages.reviews.show.createdAt'|trans }}</b>:
+            {{ review.getCreatedAt()|app_datetime }}
+        </li>
+        <li>
+            <b>{{ 'pages.reviews.show.reviewText'|trans }}</b>:
+            {{ review.getReviewText() }}
+        </li>
+    </ul>
+
+    {{ include('components/backButton.html.twig', { url: path('review.index') }) }}
+
+{% endblock %}

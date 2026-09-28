@@ -1,0 +1,5 @@
+404:
+    title: 'A keresett oldal nem található'
+500:
+    title: 'Hiba történt!'
+    content: 'Szerverünk jelenleg technikai problémával küzd. Kérjük, próbáld újra később!'
